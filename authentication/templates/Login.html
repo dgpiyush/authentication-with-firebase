@@ -1,0 +1,100 @@
+{% if message %}
+<script>
+	alert('{{ message }}');
+</script>
+{% endif %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sign In</title>
+	<style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+	body{
+			background-image: url(https://images.unsplash.com/photo-1485841890310-6a055c88698a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80);
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position: center;
+
+		}
+		input{
+			margin-top:20px;
+			height: 30px;
+			padding: 12px 20px;
+			width: 150px;
+			margin: 8px 0;
+			border-radius: 5px;
+		}
+		input[type="submit"]{
+			background-color: rgba(7, 179, 185, 0.753);
+			color: rgb(255, 255, 255);
+			border: none;
+			border-radius: 5px;
+		}
+		button{
+			background-color: rgba(7, 179, 185, 0.753);
+			color: white;
+			width: 150px;
+			height: 30px;
+			border: none;
+			border-radius: 5px;
+		}
+        .container{
+            width: 400px;
+            background-color: rgba(255, 255, 255, 0.753);
+            border-radius: 5px;
+
+            margin: 0 auto;
+            margin-top: 100px;
+            padding: 20px;
+        }
+        input{
+            width: 100%;
+        }
+        h1{
+            text-align: center;
+            color: black;
+        }
+        label{
+            color: black;
+        }
+        a{
+            color: blue;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        a:hover{
+            color: red;
+        }
+	</style>
+</head>
+<body>
+
+<div class="container">
+    <h1 style="color: black;">Sign In</h1>
+<form  method="post">
+	{% csrf_token %}
+	<br/>
+<!-- Enter Your Email: -->
+	<label for="Email">Email</label>
+	<input type="email"id="Email" name="email"><br><br>
+<!-- Enter Your Password: -->
+	<label for="Password">Password</label>
+	<input type="password" id="Password" name="pass"><br><br>
+	<input type="submit" value="SignIn"><br><br>
+	<p>Forgot Password? <a href="{% url 'reset' %}">Click Here to Reset</a></p>
+
+
+	
+	<button type="button" onclick="location.href='{% url 'register' %} '">SignUp</button>
+</form>
+</div>
+
+</body>
+</html>
